@@ -22,12 +22,12 @@ class Session (models.Model):
     movie=models.ForeignKey(Movie, on_delete=models.CASCADE)
     schedule=models.ForeignKey(Schedule, on_delete=models.CASCADE)
     def __str__(self):
-        return self.movie.name
+        return self.movie.name 
 
 class Client(models.Model):  
     name= models.CharField(max_length=50)
     age= models.IntegerField()
-    session=models.ForeignKey(Session, on_delete=models.CASCADE)
+    session=models.ManyToManyField(Session)
     def __str__(self):
         return self.name
     
